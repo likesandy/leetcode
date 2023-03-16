@@ -10,13 +10,3 @@ function countMatches(
   }
   return ans;
 }
-
-countMatches(
-  [
-    ["phone", "blue", "pixel"],
-    ["computer", "silver", "lenovo"],
-    ["phone", "gold", "iphone"],
-  ],
-  "color",
-  "silver"
-);
