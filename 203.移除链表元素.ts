@@ -18,18 +18,16 @@
  */
 
 function removeElements(head: ListNode | null, val: number): ListNode | null {
-  if (!head) return null
-  const dummy = new ListNode(0, head)
-  // 创建新的指针,用于遍历
-  // curr被初始化为dummy，而不是dummy.next，是因为我们删除元素的时候,需要知道前一个元素
-  let curr = dummy
-
-  while (curr.next) {
-    if (curr.next.val === val) curr.next = curr.next.next
-    else curr = curr.next
+  const root: ListNode | null = new ListNode(0, head)
+  let prev = root
+  let curr = root.next
+  while (curr) {
+    if (val === curr.val) prev.next = prev.next.next
+    else {
+      prev = curr
+    }
+    curr = curr.next
   }
-
-  // return head × ,head有可能被删掉了
-  return dummy.next
+  return root.next
 }
 // @lc code=end
